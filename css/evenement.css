@@ -1,0 +1,117 @@
+main {
+    position: relative;
+    
+   
+    text-align: center;
+    padding: 20px;
+}
+.image-header {
+position: relative;
+width: 100%;
+height: 400px; /* ارتفاع الهيدر */
+overflow: hidden;
+}
+
+.image-header img {
+width: 100%;
+height: 100%;
+object-fit: cover; /* لجعل الصورة تغطي الهيدر بالكامل */
+}
+
+/* تأثير التغطية فوق الصورة */
+.overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5); /* لون شفاف لتأثير الداكن */
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* تنسيق العنوان */
+.overlay h1 {
+color: white;
+font-size: 36px;
+font-weight: bold;
+text-transform: uppercase;
+text-align: center;
+}
+/* قسم الأخبار */
+.news-section {
+background: #e0ebf5; /* لون الخلفية */
+padding: 40px 0;
+}
+
+.container-grid{
+display: flex;
+gap: 20px;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.card {
+width: 300px;
+text-align: center;
+margin: 20px;
+border-radius: 10px;
+overflow: hidden;
+transition: background-color 0.3s ease-in-out;
+}
+
+.image-container {
+position: relative;
+width: 100%;
+}
+
+.image-container img {
+width: 100%;
+height: 250px;
+object-fit: cover;
+display: block;
+transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .image-container img {
+transform: scale(1.05); /* تأثير تكبير الصورة عند التمرير */
+}
+
+.overlay-2 {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(103, 138, 208, 0.552); /* لون أزرق شفاف عند التمرير */
+opacity: 0;
+transition: opacity 0.3s ease-in-out;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.card:hover .overlay-2 {
+opacity: 1; /* إظهار التغطية الزرقاء عند تمرير الماوس */
+
+}
+.learn-more {
+color: white;
+font-size: 18px;
+font-weight: bold;
+}
+
+.card-title {
+font-size: 20px;
+font-weight: bold;
+margin-top: 10px;
+}
+
+.card-description {
+font-size: 16px;
+color: #555;
+margin-top: 5px;
+}
+
+
