@@ -69,20 +69,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // INSERT INTO DATABASE
-    if (empty($fname_err) && empty($lname_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)) {
-        $sql = "INSERT INTO users (fname, lname, email, password) VALUES (?, ?, ?, ?)";
-        if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param("ssss", $param_fname, $param_lname, $param_email, $param_password);
-            $param_fname = $fname;
-            $param_lname = $lname;
-            $param_email = $email;
-            $param_password = password_hash($password, PASSWORD_DEFAULT);
-
-            $verification_code = rand(100000, 999999);
-
-        if ($stmt->execute()) {
-    
+    $stmt = $conn->prepare("INSERT INTO users (fname, lname, email, password, verification_code) VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param("sssss", $fname, $lname, $email, $password, $verification_code); // Bind all parameters
+$verification_code = rand(100000, 999999);
+if ($stmt->execute()) {
+    // Send email with PHPMailer
     $mail = new PHPMailer(true);
 
     try {
@@ -105,21 +96,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Body    = "Hello,<br><br>Your verification code is: <b>" . $verification_code . "</b><br><br>Thank you!";
 
         $mail->send();
-        echo "Registration successful! A verification code has been sent to your email.";
+        // echo "Registration successful! A verification code has been sent to your email.";
         header("location: verify.html");
 
-
-            } catch (Exception $e) {
-                echo "Email could not be sent. Mailer Error: {$mail->ErrorInfo}";
-            }
-        } else {
-            echo "Error: " . $stmt->error;
-        }
-
-
-        }
+    } catch (Exception $e) {
+        echo "Email could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
-    $conn->close();
+} else {
+    echo "Error: " . $stmt->error;
+}
+
+$stmt->close();
+$conn->close();
 
 
 }

@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <style>
+    <!-- <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -153,10 +153,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .register-link a:hover {
             text-decoration: underline;
         }
-    </style>
+    </style> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+
+<div class="container" id="signIn">
+        <h1 class="form-title">Sign In</h1>
+        <?php 
+        if (!empty($login_err)) {
+            echo '<div class="error">' . $login_err . '</div>';
+        }        
+        ?>
+        <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="input-group">
+                <span class="error"><?php echo $email_err; ?></span>
+                <i class="fas fa-envelope"></i>         
+                <input  type="email" name="email" class="<?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
+                <label for="email">Email</label>
+            </div>
+            <div class="input-group">
+                <span class="error"><?php echo $password_err; ?></span>
+                <i class="fas fa-lock"></i>
+                <input  type="password" name="password" class="<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                <label for="password">Password</label> 
+            </div>
+            <!-- <p class="recover">
+                <a href="#">Recover Password</a>
+            </p> -->
+            <input type="submit" class="btn" value="Sign In" name="signIn">
+        </form>
+        <p class="or"> </p>
+        <div class="links">
+            <p>Don't Have an Account Yet?</p>
+            <button id="signUpButton">Sign Up</button>
+        </div>
+    </div>
+
+
+
+    <!-- <div class="container">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
 
@@ -184,6 +221,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Don't have an account? <a href="register.php">Sign up now</a>
             </div>
         </form>
-    </div>
+    </div> -->
 </body>
 </html>
+
+

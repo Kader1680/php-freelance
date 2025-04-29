@@ -1,6 +1,85 @@
-<form action="verify.php" method="POST">
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email Verification</title>
+  <style>
+    body {
+      background: #e2e2e2f6;;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .verification-form {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .verification-form h2 {
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    .verification-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .verification-form input[type="email"],
+    .verification-form input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    .verification-form button {
+      width: 100%;
+      background-color: #b58e53;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .verification-form button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<form action="verify.php" method="POST" class="verification-form">
     <h2>Verify Your Email</h2>
-    Email: <input type="email" name="email" required><br><br>
-    Code: <input type="text" name="code" required><br><br>
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="code">Code</label>
+    <input type="text" name="code" id="code" required>
+
     <button type="submit">Verify</button>
 </form>
+
+</body>
+</html>
