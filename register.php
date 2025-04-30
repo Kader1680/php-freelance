@@ -1,17 +1,20 @@
 <?php
 
+
 require 'vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+ 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require_once './includes/connect.php';
 
-// VARIABLES
 $fname = $lname = $email = $password = $confirm_password = "";
 $fname_err = $lname_err = $email_err = $password_err = $confirm_password_err = "";
 
-// HANDLE FORM SUBMISSION
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST["fname"]))) {
         $fname_err = "Please enter your first name.";
@@ -70,33 +73,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $stmt = $conn->prepare("INSERT INTO users (fname, lname, email, password, verification_code) VALUES (?, ?, ?, ?, ?)");
-$stmt->bind_param("sssss", $fname, $lname, $email, $password, $verification_code); // Bind all parameters
-$verification_code = rand(100000, 999999);
-if ($stmt->execute()) {
-    // Send email with PHPMailer
+    $stmt->bind_param("sssss", $fname, $lname, $email, $password, $verification_code); 
+    $verification_code = rand(100000, 999999);
+    if ($stmt->execute()) {
     $mail = new PHPMailer(true);
 
     try {
-        // Server settings
-        $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';    // SMTP server
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'ouldhenniabaghdad@gmail.com';   // Your Gmail
-        $mail->Password   = 'vtgsuvdnrehhxgwf';      // Your App Password
-        $mail->SMTPSecure = 'tls';
-        $mail->Port       = 587;
 
-        // Recipients
-        $mail->setFrom('ouldhenniabaghdad@gmail.com', 'website');
+        $mail->isSMTP();
+        $mail->Host       = $_ENV['MAIL_HOST'];
+        $mail->SMTPAuth   = true;
+        $mail->Username   = $_ENV['MAIL_USERNAME'];
+        $mail->Password   = $_ENV['MAIL_PASSWORD'];
+        $mail->SMTPSecure = $_ENV['MAIL_ENCRYPTION'];
+        $mail->Port       = $_ENV['MAIL_PORT'];
+
+        $mail->setFrom($_ENV['MAIL_FROM'], $_ENV['MAIL_FROM_NAME']);
         $mail->addAddress($email);
 
-        // Content
         $mail->isHTML(true);
         $mail->Subject = 'Your verification code';
         $mail->Body    = "Hello,<br><br>Your verification code is: <b>" . $verification_code . "</b><br><br>Thank you!";
 
         $mail->send();
-        // echo "Registration successful! A verification code has been sent to your email.";
         header("location: verify.html");
 
     } catch (Exception $e) {
