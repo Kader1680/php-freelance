@@ -8,6 +8,7 @@
 // include 'includes/header.php'; 
 session_start();
 include './delete_user.php'; 
+ 
 $role = $_SESSION['role'] ?? null;
 require_once './includes/connect.php';
 // || $_SESSION['role'] !== 'admin'
@@ -19,8 +20,6 @@ echo $_SESSION['role']
 
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -306,8 +305,6 @@ echo $_SESSION['role']
         <header class="admin-header">
             <h1 style="color: white;">Admin Dashboard</h1>
         </header>
-        
-        <!-- Users Section -->
         <section class="section">
             <h2 class="section-title">Manage Users</h2>
             <?php
@@ -369,7 +366,6 @@ echo $_SESSION['role']
                 <button type="submit" class="submit-btn">Add Publication</button>
             </form>
             
-            <!-- Publications Grid -->
             <div class="publications-grid">
                 <?php
                 $pub_sql = "SELECT id, title, description, image_path, created_at FROM publications ORDER BY created_at DESC";
@@ -386,10 +382,12 @@ echo $_SESSION['role']
                                 <p class="card-description"><?= htmlspecialchars($row['description']) ?></p>
                                 <div class="card-footer">
                                     <span class="card-date"><?= date('M d, Y', strtotime($row['created_at'])) ?></span>
-                                    <div class="actions">
-                                        <a href="edit_publication.php?id=<?= $row['id'] ?>" class="action-btn edit-btn">Edit</a>
-                                        <a href="delete_publication.php?id=<?= $row['id'] ?>" class="action-btn delete-btn" onclick="return confirm('Delete this publication?')">Delete</a>
-                                    </div>
+    
+                                <form action="edit_publication.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?')" class="action-container">
+                                    <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                                    <button type="submit" class="action-btn delete-btn">Delete</button>
+                                </form>
+                                <a href="edit_publication.php?id=<?= $row['id'] ?>" class="action-btn edit-btn">Edit</a>
                                 </div>
                             </div>
                         </div>

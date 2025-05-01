@@ -27,11 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Invalid file type. Only JPG, PNG, and GIF are allowed.');
     }
 
-    $maxSize = 2 * 1024 * 1024; 
-    if ($fileSize > $maxSize) {
-        die('File size exceeds 2MB limit');
-    }
- 
+    
     $uploadDir = 'uploads/publications/';
     if (!file_exists($uploadDir)) {
         mkdir($uploadDir, 0777, true);
