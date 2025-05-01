@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt = $conn->prepare($sql)) {
             $stmt->bind_param("s", $param_email);
             $param_email = trim($_POST["email"]);
+            
             if ($stmt->execute()) {
                 $stmt->store_result();
                 if ($stmt->num_rows == 1) {
@@ -60,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif (strlen(trim($_POST["password"])) < 6) {
         $password_err = "Password must have at least 6 characters.";
     } else {
-        $password = trim($_POST["password"]);
+        $password = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT);
     }
 
     if (empty(trim($_POST["confirm_password"]))) {

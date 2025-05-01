@@ -30,51 +30,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              
             $stmt->bind_param("s", $param_email);
             
-            // Set parameters
             $param_email = $email;
             
-            // Attempt to execute the prepared statement
             if ($stmt->execute()) {
-                // Store result
                 $stmt->store_result();
                 
-                // Check if email exists, if yes then verify password
                 if ($stmt->num_rows == 1) {
-                    // Bind result variables
                     $stmt->bind_result($id, $fname, $lname, $email, $hashed_password);
                     if ($stmt->fetch()) {
                         if (password_verify($password, $hashed_password)) {
-                            // Password is correct, so start a new session
                             session_start();
                             
-                            // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["email"] = $email;
                             $_SESSION["fname"] = $fname;
                             $_SESSION["lname"] = $lname;
                             
-                            // Redirect user to welcome page
                             header("location: index.php");
                         } else {
-                            // Password is not valid
                             $login_err = "Invalid email or password.";
                         }
                     }
                 } else {
-                    // Email doesn't exist
                     $login_err = "Invalid email or password.";
                 }
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
-            // Close statement
             $stmt->close();
         }
     }
     
-    // Close connection
     $conn->close();
 }
 ?>
@@ -154,8 +142,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-decoration: underline;
         }
     </style> -->
+    <style>
+        .error{
+        border: 1.4px solid #f75757;
+        background-color: #ff000040;
+        padding: 10px;
+        margin: 10px 0px;
+        color: #8e0303;
+}
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
@@ -168,13 +165,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
         <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="input-group">
-                <span class="error"><?php echo $email_err; ?></span>
+                
                 <i class="fas fa-envelope"></i>         
                 <input  type="email" name="email" class="<?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
                 <label for="email">Email</label>
             </div>
             <div class="input-group">
-                <span class="error"><?php echo $password_err; ?></span>
+      
                 <i class="fas fa-lock"></i>
                 <input  type="password" name="password" class="<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                 <label for="password">Password</label> 
