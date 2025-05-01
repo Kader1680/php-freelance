@@ -5,11 +5,22 @@
 //     header('Location: admin_login.php');
 //     exit();
 // }
-include 'includes/header.php'; 
+// include 'includes/header.php'; 
+session_start();
 include './delete_user.php'; 
-
+$role = $_SESSION['role'] ?? null;
 require_once './includes/connect.php';
+// || $_SESSION['role'] !== 'admin'
+if (!isset($_SESSION['id'])) {
+    echo "Access denied. Admins only.";
+    exit;
+}
+echo $_SESSION['role']
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
