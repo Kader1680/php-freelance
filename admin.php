@@ -5,19 +5,30 @@
 //     header('Location: admin_login.php');
 //     exit();
 // }
-// include 'includes/header.php'; 
-session_start();
+include 'includes/header.php'; 
 include './delete_user.php'; 
  
-$role = $_SESSION['role'] ?? null;
 require_once './includes/connect.php';
-// || $_SESSION['role'] !== 'admin'
-if (!isset($_SESSION['id'])) {
-    echo "Access denied. Admins only.";
-    exit;
-}
-echo $_SESSION['role']
+ 
+// $user_id = $_SESSION['id'] ;
 
+
+// $stmt = $conn->prepare("SELECT role FROM users WHERE id = ?");
+// $stmt->bind_param("i", $user_id);
+// $stmt->execute();
+// $result = $stmt->get_result();
+
+// if ($row = $result->fetch_assoc()) {
+//     $role = $row['role'];
+// } else {
+//     echo "User not found.";
+// }
+
+
+// if (!isset($_SESSION['id']) || $role !== 'admin' || $_SESSION['id'] == null) {
+//     echo "Access denied.";
+//     exit();
+// }
 
 ?>
 
