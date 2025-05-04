@@ -43,4 +43,28 @@ return [
     "thr" => "ستركز هذه الأنشطة على تطوير العمليات والمنهجيات العددية والتجريبية وتطبيقاتها في مجالات العلوم الهندسية ( الطاقة، ميكانيكا المواد الصلبة، علوم المواد، الهندسة الكهربائية ).",
     "fou" => "كما يتم تدريب طلبة الماجستير والدكتوراه، فضلاً عن التعليم المستمر للقطاع الاجتماعي والاقتصادي. ويتكون من خمسة (05) فرق بحثية متعددة التخصصات تضم 20 مدرسًا باحثًا و09 طلاب دكتوراه.",
 
+
+
+    "Piliers de l'X" => "ركائز المدرسة X",
+    "Se former" => "التكوين",
+    "Enseigner et chercher" => "التدريس والبحث",
+    "Entreprendre et innover" => "ريادة الأعمال والابتكار",
+    "S'associer" => "الشراكة",
+    "Accès rapides" => "روابط سريعة",
+    "Histoire de l'école" => "تاريخ المدرسة",
+    "Responsabilité sociétale et environnementale" => "المسؤولية الاجتماعية والبيئية",
+    "Soutenabilité" => "الاستدامة",
+    "Égalité des chances" => "تكافؤ الفرص",
+    "Ouverture internationale" => "الانفتاح الدولي",
+    "Annuaire" => "الدليل",
+    "Intranet" => "إنترانت",
+
+    "Mentions légales • Accessibilité numérique • Politique de protection des données • Plan du site • Gestion des cookies" 
+    => "الإشعارات القانونية • إمكانية الوصول الرقمي • سياسة حماية البيانات • خريطة الموقع • إدارة ملفات تعريف الارتباط",
+
+
+    "Réalisation Net.Com 20252025" => "إنجاز Net.Com 20252025",
+    'LES EVENEMENTS' => 'الفعاليات',
+    'Les Événements' => 'الفعاليات',
+    'No publications found.' => 'لم يتم العثور على منشورات.',
 ];

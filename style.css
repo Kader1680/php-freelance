@@ -1,134 +1,134 @@
-*{
+/* Header improvements */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 10px;
+}
+
+.logo {
+    height: 50px;
+}
+
+.university-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.separator {
+    width: 1px;
+    background-color: white;
+    height: 30px;
+    margin: 0 10px;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "poppins",sans-serif;
-}
-body{
-    background-color: #406af5;
-    background: linear-gradient(to bottom, #fac458b8, #1d3561b8);
-
-}
-.container{
-    background:#fff ;
-    width: 450px;
-    padding: 1.5rem;
-    margin-top: 80px;
-   margin-bottom: 100px;
-   margin-left: auto;
-   margin-right: auto;
-    border-radius: 10px;
-    box-shadow: 0 20px 35px rgba(0,0, 1, 0.9);
-}
-.input-group {
-    position: relative;
-    margin-bottom: 25px;
 }
 
-.input-group i {
-    position: absolute;
-    left: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #000;
-    z-index: 2;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 10px 5px 10px 30px;
-    border: none;
-    border-bottom: 1px solid #757575;
-    font-size: 15px;
-    background: transparent;
-    color: #000;
-}
-
-.input-group input:focus {
-    border-bottom: 2px solid #b58e53;
-    outline: none;
-}
-
-.input-group input::placeholder {
-    color: transparent;
-}
-
-.input-group label {
-    position: absolute;
-    left: 30px;
-    top: 10px;
-    color: #757575;
-    font-size: 15px;
-    transition: 0.3s ease all;
-    pointer-events: none;
-    background: white;
-    padding: 0 4px;
-}
-
-.input-group input:focus ~ label,
-.input-group input:not(:placeholder-shown) ~ label {
-    top: -10px;
-    font-size: 13px;
-    color: #b58e53;
-}
-
-
-.recover{
-    text-align: right;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-.recover a{
-    text-decoration: none;
-    color: rgba(0, 33, 71, 1)
-    ;
-}
-.recover a:hover{
-    color: #b58e53;
-    text-decoration: underline;
-}
-.btn{
-    font-size: 1.1rem;
-    padding: 8px 0;
-    margin-bottom: 12px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    width: 100%;
-    background: rgba(0, 33, 71, 1)
-    ;
+nav ul li a {
     color: white;
-    cursor: pointer;
-    transition: 0.9s;
-}
-.btn:hover{
-    background: #07001f;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background 0.3s;
 }
 
-
-.links{
-    display:flex;
-    justify-content:space-around;
-    padding:0 4rem;
-    margin-top:0.9rem;
-    font-weight:bold;
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
 }
-button{
-    color: rgba(0, 33, 71, 1);
 
-    border: none;
-    background-color: transparent ;
-    font-size: 1rem;
-    font-weight: bold;
+.auth-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
 }
-button:hover{
+
+.lang-switch {
+    color: white;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+.lang-switch:hover {
     text-decoration: underline;
-    color: #b58e53;
 }
 
+.login-btn {
+    background-color: #fff;
+    color: #004080;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
 
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: white;
+    margin: 4px 0;
+}
 
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #004080;
+        margin-top: 10px;
+        padding: 10px 0;
+    }
 
+    nav ul.show {
+        display: flex;
+    }
 
+    .hamburger {
+        display: flex;
+    }
+}

@@ -5,9 +5,9 @@ require_once './includes/connect.php';
 
 <main>
     <div class="image-header">
-        <img src="img/evenement/Life Coach.jpeg" alt="Les Événements">
+        <img src="img/evenement/Life Coach.jpeg" alt="<?= __('Les Événements'); ?>">
         <div class="overlay">
-            <h1>LES EVENEMENTS</h1>
+            <h1><?= __('LES EVENEMENTS'); ?></h1>
         </div>
     </div>
     
@@ -23,16 +23,15 @@ require_once './includes/connect.php';
                     <div class="card">
                         <div class="image-container">
                             <img src="<?php echo htmlspecialchars($row['image_path']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>">
-                            <div class="overlay-2">
-                            </div>
+                            <div class="overlay-2"></div>
                         </div>
-                        <h3 class='card-title'><?php echo htmlspecialchars($row['title']); ?> </h3>
+                        <h3 class='card-title'><?php echo htmlspecialchars($row['title']); ?></h3>
                         <p class='card-description'><?php echo htmlspecialchars(substr($row['description'], 0, 350)); ?>...</p>
                     </div>
             <?php
                 }
             } else {
-                echo '<p>No publications found.</p>';
+                echo '<p>' . __('No publications found.') . '</p>';
             }
             ?>
         </div>

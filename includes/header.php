@@ -12,6 +12,7 @@ include "./translate.php"
     <link rel="stylesheet" href="css/global.css">  
     <link rel="stylesheet" href="css/<?php echo basename($_SERVER['PHP_SELF'], '.php'); ?>.css">
     <title>Laboratoires - Evenement</title>
+
     <link rel="stylesheet" href="css/global.css">  
     
 </head>
@@ -65,6 +66,15 @@ include "./translate.php"
             <p><?= __('Veuillez'); ?></p>
         <?php endif; ?>
     </main>
+
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+
 
 </body>
 </html>

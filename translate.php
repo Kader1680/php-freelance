@@ -1,6 +1,6 @@
 <?php 
 
-$lang = $_SESSION['lang'] ?? 'en'; // default to English
+$lang = $_SESSION['lang'] ?? 'fr'; // default to french
 
 $translations = include "lang/$lang.php";
 

@@ -45,6 +45,32 @@ return [
 
 
 
+    "Piliers de l'X" => "Piliers de l'X",
+    "Se former" => "Se former",
+    "Enseigner et chercher" => "Enseigner et chercher",
+    "Entreprendre et innover" => "Entreprendre et innover",
+    "S'associer" => "S'associer",
+    "Accès rapides" => "Accès rapides",
+    "Histoire de l'école" => "Histoire de l'école",
+    "Responsabilité sociétale et environnementale" => "Responsabilité sociétale et environnementale",
+    "Soutenabilité" => "Soutenabilité",
+    "Égalité des chances" => "Égalité des chances",
+    "Ouverture internationale" => "Ouverture internationale",
+    "Annuaire" => "Annuaire",
+    "Intranet" => "Intranet",
+
+
+
+
+    "Mentions légales • Accessibilité numérique • Politique de protection des données • Plan du site • Gestion des cookies" 
+    => "Mentions légales • Accessibilité numérique • Politique de protection des données • Plan du site • Gestion des cookies",
+
+"Réalisation Net.Com 20252025" => "Réalisation Net.Com 20252025",
+
+'LES EVENEMENTS' => 'LES ÉVÉNEMENTS',
+'Les Événements' => 'Les Événements',
+'No publications found.' => 'Aucune publication trouvée.',
+
 
 
 
