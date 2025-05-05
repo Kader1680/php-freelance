@@ -1,5 +1,8 @@
 <?php
 return [
+
+    'loginn' => 'دخول',
+    'register' => 'تسجيل دخول',
     'Laboratoire' => 'معمل',
     'Missions' => 'البعثات',
     'Equipes' => 'الفرق',

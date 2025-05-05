@@ -1,13 +1,15 @@
 <?php
 return [
+    'loginn' => 'Connexion',
+    'register' => 'Inscription',
     'Laboratoire' => 'Laboratoire',
     'Missions' => 'Missions',
     'Equipes' => 'Equipes',
     'Innovation' => 'Missions',
-    'Evenement' => 'À propos du Labo',
+    'Evenement' => 'Evenement',
     'login' => 'login',
     'Bienvenue' => 'Bienvenue sur le site des Laboratoires',
-    "propre" => "À propos du Labo",
+    "propre" => "À propos",
     'Veuillez' => 'Veuillez vous connecter ou vous inscrire pour continuer.',
     'universite' => 'Université Ain Temouchent',
 
