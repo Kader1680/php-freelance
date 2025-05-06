@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .container {
             max-width: 500px;
             margin: 50px auto;
-            padding: 40px;
+            padding: 10px;
             background-color: var(--light-color);
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -300,7 +300,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         @media (max-width: 768px) {
             .container {
                 margin: 30px 20px;
-                padding: 30px;
+                padding: 10px;
             }
             
             header {

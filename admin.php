@@ -5,30 +5,36 @@
 //     header('Location: admin_login.php');
 //     exit();
 // }
+
 include 'includes/header.php'; 
 include './delete_user.php'; 
- 
 require_once './includes/connect.php';
  
-// $user_id = $_SESSION['id'] ;
+if (!isset($_SESSION['id'])) {
+    echo "page not authozithed.";
+    exit();
+}
 
+ 
+$user_id = $_SESSION['id'];
 
-// $stmt = $conn->prepare("SELECT role FROM users WHERE id = ?");
-// $stmt->bind_param("i", $user_id);
-// $stmt->execute();
-// $result = $stmt->get_result();
+$stmt = $conn->prepare("SELECT role FROM users WHERE id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
-// if ($row = $result->fetch_assoc()) {
-//     $role = $row['role'];
-// } else {
-//     echo "User not found.";
-// }
+if ($row = $result->fetch_assoc()) {
+    $role = $row['role'];
+} else {
+    echo "User not found.";
+    exit();
+}
 
-
-// if (!isset($_SESSION['id']) || $role !== 'admin' || $_SESSION['id'] == null) {
-//     echo "Access denied.";
-//     exit();
-// }
+// Check if user is admin
+if ($role !== 'admin') {
+    echo "Access denied. Admin privileges required.";
+    exit();
+}
 
 ?>
 
@@ -39,6 +45,69 @@ require_once './includes/connect.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Dashboard</title>
     <style>
+
+        
+.access-denied-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.access-denied-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 400px;
+}
+
+.access-denied-header {
+    font-size: 24px;
+    color: #d32f2f;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.access-denied-header i {
+    margin-right: 10px;
+}
+
+.access-denied-message {
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.access-denied-button {
+    display: inline-block;
+    background-color: #002147;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.access-denied-button i {
+    margin-right: 8px;
+}
+
+.access-denied-button:hover {
+    background-color: #003366;
+}
+
+
+
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #b58e53;

@@ -52,7 +52,7 @@ include 'includes/connect.php';
                 $update = $conn->prepare("UPDATE users SET is_verified = 1, verification_code = NULL WHERE email = ?");
                 $update->bind_param("s", $email);
                 if ($update->execute()) {
-                    echo "<div class='success'>Your email has been verified successfully!</div>";
+                    echo "<div class='success'>Your email has been verified successfully! <a href='/index.php'>go to home page</a></div>";
                 } else {
                     echo "<div class='error'>Error updating verification status. Please try again later.</div>";
                 }

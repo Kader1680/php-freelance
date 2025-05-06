@@ -6,6 +6,7 @@ $dotenv->load();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
 require_once './includes/connect.php';
 
@@ -13,17 +14,77 @@ $fname = $lname = $email = $password = $confirm_password = "";
 $fname_err = $lname_err = $email_err = $password_err = $confirm_password_err = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validation code remains the same...
-    // [Previous validation code here...]
+    if (empty(trim($_POST["fname"]))) {
+        $fname_err = "Please enter your first name.";
+    } else {
+        $fname = trim($_POST["fname"]);
+        if (!preg_match('/^[a-zA-Z]+$/', $fname)) {
+            $fname_err = "First name can only contain letters.";
+        }
+    }
+
+ 
+    if (empty(trim($_POST["lname"]))) {
+        $lname_err = "Please enter your last name.";
+    } else {
+        $lname = trim($_POST["lname"]);
+        if (!preg_match('/^[a-zA-Z]+$/', $lname)) {
+            $lname_err = "Last name can only contain letters.";
+        }
+    }
+
+    
+    if (empty(trim($_POST["email"]))) {
+        $email_err = "Please enter your email.";
+    } else {
+        $email = trim($_POST["email"]);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $email_err = "Please enter a valid email address.";
+        } else {
+            $sql = "SELECT id FROM users WHERE email = ?";
+            if ($stmt = $conn->prepare($sql)) {
+                $stmt->bind_param("s", $email);
+                if ($stmt->execute()) {
+                    $stmt->store_result();
+                    if ($stmt->num_rows > 0) {
+                        $email_err = "This email is already registered.";
+                    }
+                }
+                $stmt->close();
+            }
+        }
+    }
+
+    if (empty(trim($_POST["password"]))) {
+        $password_err = "Please enter a password.";     
+    } elseif (strlen(trim($_POST["password"])) < 4) {
+        $password_err = "Password must have at least 4 characters.";
+    } else {
+        $password = trim($_POST["password"]);
+    }
+
+    if (empty(trim($_POST["confirm_password"]))) {
+        $confirm_password_err = "Please confirm password.";     
+    } else {
+        $confirm_password = trim($_POST["confirm_password"]);
+        if (empty($password_err) && ($password != $confirm_password)) {
+            $confirm_password_err = "Password did not match.";
+        }
+    }
 
     if (empty($fname_err) && empty($lname_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)) {
-        $stmt = $conn->prepare("INSERT INTO users (fname, lname, email, password, verification_code) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $fname, $lname, $email, $password, $verification_code); 
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $verification_code = rand(100000, 999999);
+        
+        $stmt = $conn->prepare("INSERT INTO users (fname, lname, email, password, verification_code) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $fname, $lname, $email, $hashed_password, $verification_code);
         
         if ($stmt->execute()) {
             $mail = new PHPMailer(true);
+            
             try {
+                $mail->SMTPDebug = SMTP::DEBUG_OFF; // Set to DEBUG_SERVER for testing
                 $mail->isSMTP();
                 $mail->Host       = $_ENV['MAIL_HOST'];
                 $mail->SMTPAuth   = true;
@@ -32,23 +93,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $mail->SMTPSecure = $_ENV['MAIL_ENCRYPTION'];
                 $mail->Port       = $_ENV['MAIL_PORT'];
 
+                // Recipients
                 $mail->setFrom($_ENV['MAIL_FROM'], $_ENV['MAIL_FROM_NAME']);
                 $mail->addAddress($email);
 
+                // Content
                 $mail->isHTML(true);
                 $mail->Subject = 'Your verification code';
                 $mail->Body    = "Hello,<br><br>Your verification code is: <b>" . $verification_code . "</b><br><br>Thank you!";
+                $mail->AltBody = "Your verification code is: " . $verification_code;
 
                 $mail->send();
-                header("location: verify.html");
+                header("Location: verify.html");
+                exit();
             } catch (Exception $e) {
-                echo "Email could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }
         } else {
-            echo "Error: " . $stmt->error;
+            echo "Something went wrong. Please try again later.";
         }
+        
         $stmt->close();
     }
+    
     $conn->close();
 }
 ?>
@@ -59,8 +126,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register | University Portal</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+     
         :root {
             --primary-color: #002147;
             --secondary-color: #b58e53;
@@ -296,8 +364,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-     
-
     <div class="container">
         <h1 class="form-title">Create an Account</h1>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -346,12 +412,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
         <div class="links">
             <p>Already have an account?</p>
-            <a href="login.php"><button>Sign In Here</button></a>
+            <a href="login.php"><button type="button">Sign In Here</button></a>
         </div>
     </div>
 
     <script>
-        // Password strength indicator
         document.getElementById('password').addEventListener('input', function() {
             const password = this.value;
             const strengthText = document.getElementById('password-strength');
@@ -363,16 +428,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             let strength = 0;
             
-            // Length check
             if (password.length >= 8) strength++;
             if (password.length >= 12) strength++;
             
-            // Complexity checks
             if (/[A-Z]/.test(password)) strength++;
             if (/[0-9]/.test(password)) strength++;
             if (/[^A-Za-z0-9]/.test(password)) strength++;
             
-            // Update display
             if (strength <= 2) {
                 strengthText.textContent = 'Weak';
                 strengthText.className = 'password-strength strength-weak';
