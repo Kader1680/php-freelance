@@ -199,8 +199,6 @@ box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
     position: relative;
 }
-
-/* إضافة خط تحت العنوان */
 .section-title::after {
     content: "";
     display: block;
@@ -211,7 +209,6 @@ box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 3px;
 }
 
-/* تحسين صندوق النص */
 .description-box {
     max-width: 900px;
     margin: 10px auto 82px auto;

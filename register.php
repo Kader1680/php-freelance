@@ -204,6 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .input-group {
             position: relative;
             margin-bottom: 15px;
+             
         }
 
         .input-group i {
@@ -216,7 +217,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .input-group input {
             width: 100%;
-            padding: 5px 0;
+            padding: 5px 3rem;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
