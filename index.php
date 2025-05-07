@@ -5,24 +5,14 @@ include 'includes/header.php';
 
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laboratoires - home</title>
- 
-</head>
-
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <style>
         body, html {
     font-family: Arial, sans-serif;
@@ -74,7 +64,7 @@ text-align: center;
 }
 main {
     position: relative;
-    z-index: 1; /* تأكد من أن المحتوى يظهر فوق الفيديو */
+    z-index: 1; 
    
     text-align: center;
     padding: 20px;
@@ -82,11 +72,12 @@ main {
 h1{
     font-family: 'Garamond', serif;
     font-size: 36px;
-font-weight: bold;
-text-align: center;
-position: relative;
-display: inline-block;
-padding-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    color: #b58e53;
     
 }
 h1::after{
@@ -109,51 +100,80 @@ padding-bottom: 10px;
 }
 
 
-.labs {
-    padding-top: 100px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-}
+
 h3{
     padding: -20px;
     margin: 5px;
 }
+
+
+.labs {
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns by default for mobile */
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0px 0;
+}
+
 .lab {
     background: white;
-    padding: 0px 55px;
-    
+    padding: 0;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 100px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
 }
+
 .lab img {
-    width: 190%;
-    margin: 10px -50px;
+    width: 100%;
+    margin: 0;
     border-radius: 2px;
 }
+
+/* Medium screens (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .labs {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
+        
+    }
+}
+
+/* For the fifth lab to appear centered when there are 4 columns */
+@media (min-width: 768px) {
+    .lab:nth-child(5) {
+        grid-column: 2 / span 2;
+    }
+}
+
+/* Adjust the lab box styles to fit better in the grid */
+.lab-box {
+    border: 2px solid #b58e53;
+    padding: 5px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    font-family: 'Times New Roman', serif;
+    font-size: 12px;
+    font-weight: normal;
+    background-color: white;
+    text-align: center;
+}
+
+
 .lab:hover{
     
     box-shadow:#b58e53 0px 8px 24px;;
 }
 
 
-.lab-box {
-border: 2px solid #b58e53; /* لون الإطار */
-padding: 5px;
-margin: 10px -30px; /* توسيط العنصر أفقيًا */
-display: flex;
-justify-content: center; /* توسيط النص أفقيًا */
-align-items: center; /* توسيط النص عموديًا */
-width: 150px; /* ضبط العرض حسب الحاجة */
-font-family: 'Times New Roman', serif;
-font-size: 12px;
-font-weight: normal;
-background-color: white;
-text-align: center;
-}
+
 .lab-box a{
     color: black;
     text-decoration: none;
@@ -194,7 +214,7 @@ box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 /* تحسين صندوق النص */
 .description-box {
     max-width: 900px;
-    margin: 40px auto;
+    margin: 10px auto 82px auto;
     padding: 20px;
     
     background: linear-gradient(135deg, #f7f3e9, #eae2d7);
@@ -375,35 +395,31 @@ text-align: center;
 
 
 </section>
-<div  class="overlay-2 hidden">
-<h1 class="section-title"><?= __('lire'); ?></h1>
-<div id="about-labo" class="description-box">
-<p>
-    <?= __('pri'); ?>.
-</p>
-<p>
-<?= __('sec'); ?>
-</p>
-<p>
-<?= __('thr'); ?>
-    
-</p>
-<p>
-<?= __('fou'); ?>
+        <div  class="overlay-2 hidden">
+        <h1 class="section-title"><?= __('lire'); ?></h1>
+        <div id="about-labo" class="description-box">
+        <p>
+            <?= __('pri'); ?>.
+        </p>
+        <p>
+        <?= __('sec'); ?>
+        </p>
+        <p>
+        <?= __('thr'); ?>
+            
+        </p>
+        <p>
+        <?= __('fou'); ?>
+        
+        </p>
+        </div>
+        </div>
   
-</p>
-</div>
-</div>
-
+<?php include 'includes/footer.php'; ?>
 
 <script src="script1.js"></script>
 
 </main>
 </body>
 </html>
-   
  
-    <?php include 'includes/footer.php'; ?>
-
- 
-
