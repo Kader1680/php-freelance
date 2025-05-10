@@ -1,69 +1,222 @@
 <?php include 'includes/header.php'; ?>
-        <main>
-        
+<style>
+    @media(max-width: 767px){
+        .info-container {
+           display: block;
+        }
+        .info-box {
+           margin-bottom: 40px;
+        }
+        .supervisor-container {
+    display: block;
+     
+}
+.supervisor-container img {
+     display: flex;
+    
+    margin: auto;
+}
 
-            <div class="hero">
-                <img src="img/3640543.jpg" alt="Laboratoire">
-                <div class="overlay"></div>
-                <div class="text-box">
-                    <h1>Modélisation mathématique des micro/nanostructures   </h1>
-                    <p>
-                        L’enjeu principal des recherches envisagées par cette équipe réside dans l'accompagnement et  le développement de nouveaux matériaux et nouveaux modèles mathématiques pour traiter les structures à multi échelle.
-                        Nos recherches concernent les matériaux composites, et à gradient évalué. Elles s’effectuent sur une échelle  allant « du nano au macro » 
-                        
-                    </p>
-                </div>
+      .info-container {
+    display: block;
+    
+}
+.info-box {
+    
+}
+
+    }
+
+    @media(min-width: 767px){
+      .supervisor-container {
+        display: flex;   
+        }
+        .supervisor-container img {
+            margin-right: 20px;
+        }
+        .info-container {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.info-box {
+     
+    width: 150px;
+    height: 150px;
+}
+    }
+
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 0px;
+}
+.hero img {
+    width: 100%;
+    height: 100%;
+    
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 40%, rgba(0, 0, 0, 0) 60%);
+}
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+    background: rgb(178 186 218 / 78%);
+    padding: 30px;
+    max-width: 90%;
+    box-shadow: 2px 2px 10px rgba(3, 0, 12, 0.871);
+    border-radius: 10px;
+}
+.text-box h1 {
+    font-size: 24px;
+    margin: 0 0 10px;
+}
+.text-box p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.supervisor-section {
+    background: #9d9797;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.info-container {
+     
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.info-box {
+    background-size: cover;
+    background-position: center;
+    padding: 40px ;
+    margin-bottom: 40px;
+
+    border-radius: 10px;
+    flex: 1;
+    margin: 10 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    background-color: #002F67;
+    color: rgb(5, 4, 10);
+    
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
+    
+}
+.info-box:hover {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+}
+.info-box:nth-child(1) {
+    background-image: url('img/memoire.jpeg');
+}
+.info-box:nth-child(2) {
+    background-image: url('img/recherche.jpeg');
+}
+.info-box span {
+    background-color:  rgb(178, 186, 218);
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+}
+.supervisor-title {
+    font-family: 'Garamond', serif;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding-top: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.supervisor-container {
+    
+    align-items: center;
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+}
+.supervisor-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+ 
+}
+.supervisor-info {
+    text-align: left;
+}
+.supervisor-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.supervisor-info p {
+    font-size: 16px;
+    color: #555;
+}
+</style>
+<main>
+    <div class="hero">
+        <img src="img/3640543.jpg" alt="<?= __('alt_laboratory'); ?>">
+        <div class="overlay"></div>
+        <div class="text-box">
+            <h1><?= __('hero_title'); ?></h1>
+            <p><?= __('hero_paragraph'); ?></p>
+        </div>
+    </div>
+
+    <section class="highlight-section">
+        <div class="content">
+            <h2><?= __('highlight_title'); ?></h2>
+            <ul>
+                <li><?= __('highlight_1'); ?></li>
+                <li><?= __('highlight_2'); ?></li>
+                <li><?= __('highlight_3'); ?></li>
+                <li><?= __('highlight_4'); ?></li>
+                <li><?= __('highlight_5'); ?></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="supervisor-section">
+        <div class="info-container">
+            <div class="info-box"><span><?= __('memory_label'); ?></span></div>
+            <div class="info-box"><span><?= __('research_label'); ?></span></div>
+        </div>
+        <div class="supervisor-title"><?= __('supervisor_section_title'); ?></div>
+        <div class="supervisor-container">
+            <img src="img/prof/téléchargement (4).png" alt="<?= __('prof_alt'); ?>">
+            <div class="supervisor-info">
+                <h3><?= __('prof_name'); ?></h3>
+                <p><strong><?= __('position'); ?></strong></p>
+                <p><strong><?= __('specialty'); ?></strong></p>
+                <p><strong><?= __('experience'); ?></strong></p>
+                <p><strong><?= __('team'); ?></strong></p>
+                <p><strong><?= __('publications'); ?></strong></p>
+                <p><strong><?= __('contact_label'); ?></strong> <?= __('contact'); ?></p>
             </div>
-            <section class="highlight-section">
-                <div class="content">
-                    <h2>Nos recherches visent aussi à :</h2>
-                    <ul>
-                        <li>🔬 Caractériser des matériaux.</li>
-                        <li>🛠️ Concevoir des matériaux ayant une fonctionnalité donnée.</li>
-                        <li>📏 Trouver à l’échelle du nano, la forme appropriée du matériau.</li>
-                        <li>💡 Assurer un soutien technique dans le domaine des nanomatériaux.</li>
-                        <li>📊 Développer de nouveaux modèles mathématiques pour les matériaux intelligents.</li>
-                    </ul>
-                </div>
-            </section>
-  
-            
-            <section class="supervisor-section">
-                <div class="info-container">
-                    <div class="info-box"><span>Mémoires de fin d'études</span></div>
-                    <div class="info-box"><span>Recherches</span></div>
-                </div>
-                <div class="supervisor-title">Chef d'Équipe</div>
-                <div class="supervisor-container">
-                    <img src="img/prof/téléchargement (4).png" alt="Professeur">
-                    <div class="supervisor-info">
-                        <h3>Dr. ATTIA Amina</h3>
-                        <p><strong>Poste:</strong> Professeur en Informatique</p>
-                        <p><strong>Spécialité:</strong> Intelligence Artificielle et Systèmes Distribués</p>
-                        <p><strong>Expérience:</strong> 15 ans dans l'enseignement et la recherche</p>
-                        <p><strong>Équipe:</strong> Responsable du projet "Smart Data Lab"</p>
-                        <p><strong>Publications:</strong> Auteur de plusieurs articles sur l'IA et le Big Data</p>
-                        <p><strong>Contact:</strong> yassine.merad@univ-uat.dz</p>
-                    </div>
-                </div>
-            </section>
-            
-        </main>
-       
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let highlightSection = document.querySelector(".highlight-section");
-
-            function checkScroll() {
-                let sectionPos = highlightSection.getBoundingClientRect().top;
-                let screenPos = window.innerHeight / 1.2;
-
-                if (sectionPos < screenPos) {
-                    highlightSection.classList.add("show");
-                }
-            }
-
-            window.addEventListener("scroll", checkScroll);
-        });
-    </script>
+        </div>
+    </section>
+</main>
+ 
 <?php include 'includes/footer.php'; ?>

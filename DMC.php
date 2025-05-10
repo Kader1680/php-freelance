@@ -1,35 +1,33 @@
 <?php include 'includes/header.php'; ?>
-        <main>
-        
-
-            <div class="hero">
-                <img src="img/,.jpeg" alt="Laboratoire">
-                <div class="overlay"></div>
-                <div class="text-box">
-                    <h1>Durabilité des matériaux de construction </h1>
-                    <p>Les travaux de l’équipe s’inscrivent dans le domaine de réparation, réhabilitation des structures en génie civil ( poutres, plaques, coques…)  La priorité sera donnée au Renforcement des structures par les matériaux composites. Le groupe mènera des recherches reconnues aux niveaux national et international tout en formant d'excellents chercheurs en génie civil. </p>
-                </div>
+ 
+<main>
+    <div class="hero">
+        <img src="img/,.jpeg" alt="<?= __('lab_image_alt'); ?>">
+        <div class="overlay"></div>
+        <div class="text-box">
+            <h1><?= __('Durabilité des matériaux de construction '); ?></h1>
+            <p>Les travaux de l’équipe s’inscrivent dans le domaine de réparation, réhabilitation des structures en génie civil ( poutres, plaques, coques…)  La priorité sera donnée au Renforcement des structures par les matériaux composites. Le groupe mènera des recherches reconnues aux niveaux national et international tout en formant d'excellents chercheurs en génie civil. </p>
+        </div>
+    </div>
+    
+    <section class="supervisor-section">
+        <div class="info-container">
+            <div class="info-box"><span><?= __('memory_label'); ?></span></div>
+            <div class="info-box"><span><?= __('research_label'); ?></span></div>
+        </div>
+        <div class="supervisor-title"><?= __('supervisor_section_title'); ?></div>
+        <div class="supervisor-container">
+            <img src="img/prof/Perfil de chico con terno.jpeg" alt="<?= __('prof_image_alt'); ?>">
+            <div class="supervisor-info">
+                <h3><?= __('khaled_name'); ?></h3>
+                <p><strong><?= __('position_label'); ?></strong> <?= __('position'); ?></p>
+                <p><strong><?= __('specialty_label'); ?></strong> <?= __('specialty'); ?></p>
+                <p><strong><?= __('experience_label'); ?></strong> <?= __('experience'); ?></p>
+                <p><strong><?= __('team_label'); ?></strong> <?= __('team'); ?></p>
+                <p><strong><?= __('publications_label'); ?></strong> <?= __('publications'); ?></p>
+                <p><strong><?= __('contact_label'); ?></strong> <?= __('contact'); ?></p>
             </div>
-            
-            <section class="supervisor-section">
-                <div class="info-container">
-                    <div class="info-box"><span>Mémoires de fin d'études</span></div>
-                    <div class="info-box"><span>Recherches</span></div>
-                </div>
-                <div class="supervisor-title">Chef d'Équipe</div>
-                <div class="supervisor-container">
-                    <img src="img/prof/Perfil de chico con terno.jpeg" alt="Professeur">
-                    <div class="supervisor-info">
-                        <h3>Dr.AMARA Khaled</h3>
-                        <p><strong>Poste:</strong> Professeur en Informatique</p>
-                        <p><strong>Spécialité:</strong> Intelligence Artificielle et Systèmes Distribués</p>
-                        <p><strong>Expérience:</strong> 15 ans dans l'enseignement et la recherche</p>
-                        <p><strong>Équipe:</strong> Responsable du projet "Smart Data Lab"</p>
-                        <p><strong>Publications:</strong> Auteur de plusieurs articles sur l'IA et le Big Data</p>
-                        <p><strong>Contact:</strong> yassine.merad@univ-uat.dz</p>
-                    </div>
-                </div>
-            </section>
-        </main>
-        
-        <?php include 'includes/footer.php'; ?>
+        </div>
+    </section>
+</main>
+<?php include 'includes/footer.php'; ?>

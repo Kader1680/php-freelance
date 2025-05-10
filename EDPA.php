@@ -1,42 +1,73 @@
 <?php include 'includes/header.php'; ?>
-        <main>
-        
 
-            <div class="hero">
-                <img src="img/pexels-olly-3768126.jpg" alt="Laboratoire">
-                <div class="overlay"></div>
-                <div class="text-box">
-                    <h1>Equations aux Dérivées Partielles et Applications   </h1>
-                    <p>
-                        De nombreux phénomènes, en biologie, économie, mécanique, physique sont régis par des équations aux dérivées partielles (EDP). Les membres de l’équipe s’intéressent en particulier à des questions d’existence, d’unicité et de régularité de solutions, de stabilité, de blow-up et de comportement asymptotique pour des équations aux dérivées partielles.</p>
-                        <p>Notre but est essentiellement stabiliser le système pour le rendre insensible à certaines perturbations (stabilisation), ou encore de déterminer des solutions optimales pour certains critères;optimisation (contrôle optimal). 
-                        
-                        
-                    </p>
-                </div>
-            </div>
-           
+
+<style>
+
+@media(max-width: 768px) { 
+  .text-box {
+   
+    margin: -15px auto;
+    background: rgb(225 225 220 / 68%);
+    padding: 10px 20px;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    max-width: 568px;
+    box-shadow: 0px 4px 8px rgba(226, 222, 222, 0.989);
+    }
+
+    .info-container {
+    width: auto;
+    display: block;
+    margin: auto;
+    }
+
+}
+
+@media(min-width: 767px) { 
+  .text-box {
+   
+
+    background: rgb(225 225 220 / 68%);
+    padding: 10px 20px;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    max-width: 568px;
+    box-shadow: 0px 4px 8px rgba(226, 222, 222, 0.989);
+    }
+}
   
-            
-            <section class="supervisor-section">
-                <div class="info-container">
-                    <div class="info-box"><span>Mémoires de fin d'études</span></div>
-                    <div class="info-box"><span>Recherches</span></div>
-                </div>
-                <div class="supervisor-title">Chef d'Équipe</div>
-                <div class="supervisor-container">
-                    <img src="img/prof/Professor Fred (Em Busca de Conhecimento).jpeg" alt="Professeur">
-                    <div class="supervisor-info">
-                        <h3>Dr.BENIANI Abderrahmane</h3>
-                        <p><strong>Poste:</strong> Professeur en Informatique</p>
-                        <p><strong>Spécialité:</strong> Intelligence Artificielle et Systèmes Distribués</p>
-                        <p><strong>Expérience:</strong> 15 ans dans l'enseignement et la recherche</p>
-                        <p><strong>Équipe:</strong> Responsable du projet "Smart Data Lab"</p>
-                        <p><strong>Publications:</strong> Auteur de plusieurs articles sur l'IA et le Big Data</p>
-                        <p><strong>Contact:</strong> yassine.merad@univ-uat.dz</p>
-                    </div>
-                </div>
-            </section>
-            
-        </main>
-        <?php include 'includes/footer.php'; ?>
+</style>
+<main>
+
+    <div class="hero">
+        <img src="img/pexels-olly-3768126.jpg" alt="<?= __('lab_alt_text'); ?>">
+        <div class="overlay"></div>
+        <div class="text-box">
+            <h1><?= __('partial_diff_hero_title'); ?></h1>
+            <p><?= __('partial_diff_hero_paragraph1'); ?></p>
+            <p><?= __('partial_diff_hero_paragraph2'); ?></p>
+        </div>
+    </div>
+
+    <section class="supervisor-section">
+        <div class="info-container">
+            <div class="info-box"><span><?= __('memory_label'); ?></span></div>
+            <div class="info-box"><span><?= __('research_label'); ?></span></div>
+        </div>
+        <div class="supervisor-title"><?= __('supervisor_section_title'); ?></div>
+        <div class="supervisor-container">
+            <img src="img/prof/Professor Fred (Em Busca de Conhecimento).jpeg" alt="<?= __('professor_alt_text'); ?>">
+            <div class="supervisor-info">
+                <h3><?= __('beniani_name'); ?></h3>
+                <p><strong><?= __('position_label'); ?></strong> <?= __('position_value'); ?></p>
+                <p><strong><?= __('specialty_label'); ?></strong> <?= __('specialty_value'); ?></p>
+                <p><strong><?= __('experience_label'); ?></strong> <?= __('experience_value'); ?></p>
+                <p><strong><?= __('team_label'); ?></strong> <?= __('team_value'); ?></p>
+                <p><strong><?= __('publications_label'); ?></strong> <?= __('publications_value'); ?></p>
+                <p><strong><?= __('contact_label'); ?></strong> yassine.merad@univ-uat.dz</p>
+            </div>
+        </div>
+    </section>
+
+</main>
+<?php include 'includes/footer.php'; ?>

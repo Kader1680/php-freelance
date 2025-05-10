@@ -138,7 +138,7 @@ h3{
 /* Medium screens (tablets, 768px and up) */
 @media (min-width: 768px) {
     .labs {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
+        display: flex; /* 4 columns on medium screens */
         
     }
 }
@@ -149,8 +149,7 @@ h3{
         grid-column: 2 / span 2;
     }
 }
-
-/* Adjust the lab box styles to fit better in the grid */
+ 
 .lab-box {
     border: 2px solid #b58e53;
     padding: 5px;
@@ -180,14 +179,13 @@ h3{
 }
 
 .lab-box:hover {
-background-color: #caa75c; /* لون ذهبي مشابه للصورة */
+background-color: #caa75c;  
 color: white;
-border: 3px double black; /* إضافة إطار خارجي أسود عند التمرير */
-
-transform: scale(1.05); /* تكبير خفيف */
+border: 3px double black; 
+transform: scale(1.05);  
 box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
-/* تحسين العنوان */
+ 
 .section-title {
     padding-top: 20px;
     font-size: 2.5rem;
@@ -221,18 +219,16 @@ box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     line-height: 1.6;
     color: #000000;
     text-align: center;
-    opacity: 1; /* يتم تفعيل الأنيميشن عبر JavaScript */
+    opacity: 1;  
     transform: translateY(0);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* جعل النص يظهر بسلاسة عند التمرير */
 .description-box.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* إخفاء العنصر عند البداية */
 .hidden {
     opacity: 1;
     transform: translateY(50px);

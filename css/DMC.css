@@ -1,104 +1,51 @@
-body, html {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #e2e2e2f6;
+
+   @media(max-width: 767px){
+        .info-container {
+           display: block;
+        }
+        .info-box {
+           margin-bottom: 40px;
+        }
+        .supervisor-container {
+    display: block;
+     
+}
+.supervisor-container img {
+     display: flex;
+    
+    margin: auto;
 }
 
-header {
-    background-color: #002147;
-    color: white;
-    padding: 15px;
+      .info-container {
+    display: block;
+    
+}
+.info-box {
+    
+}
+
+    }
+
+    @media(min-width: 767px){
+      .supervisor-container {
+        display: flex;   
+        }
+        .supervisor-container img {
+            margin-right: 20px;
+        }
+        .info-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    
 }
+.info-box {
+     
+    width: 150px;
+    height: 150px;
+}
+    }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-nav ul li {
-    margin: 0 15px;
-    position: relative;
-}
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    position: relative;
-    padding-bottom: 5px;
-}
 
-/* إضافة الخط المتحرك في nav */
-nav ul li a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-color:#b58e53;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
-}
-
-nav ul li a:hover::after {
-    transform: scaleX(1);
-}
-
-nav ul li a:hover{
-    color:#b58e53;
-}
-.navbar {
-    display: flex;
-    justify-content: flex-end;
-    background-color: #ffffff;
-    padding: 10px 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-.login-btn {
-    background-color: #b58e53;
-    color: white;
-    padding: 5px 20px;
-    margin-bottom: -10px ;
-    margin-top: -10px;
-    margin-left: -20px;
-    margin-right: -20px;
-    border: none;
-    border-radius: 0px;
-    cursor: pointer;
-    font-size: 16px;
-}
-.login-btn:hover {
-    background-color:  #b9bdc2;
-}
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-.logo {
-    height: 50px;
-}
-.separator {
-    width: 3px;
-    height: 45px;
-    background-color:  #002147;
-    margin: 0 10px;
-}
-.university-name {
-    font-size: 12px;
-    font-weight: normal;
-    font-family: 'Georgia', serif;
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #e8e2e2;
-}
 .hero {
     position: relative;
     width: 100%;
@@ -122,11 +69,11 @@ body {
 .text-box {
     position: absolute;
     top: 50%;
-    left: 1%;
+    left: 2%;
     transform: translateY(-50%);
-    background: rgb(178, 186, 218);
-    padding: 20px;
-    max-width: 40%;
+    background: rgb(178 186 218 / 78%);
+    padding: 30px;
+    max-width: 90%;
     box-shadow: 2px 2px 10px rgba(3, 0, 12, 0.871);
     border-radius: 10px;
 }
@@ -147,8 +94,7 @@ body {
     justify-content: center;
 }
 .info-container {
-    display: flex;
-    justify-content: space-between;
+     
     max-width: 800px;
     width: 100%;
     margin-bottom: 20px;
@@ -161,7 +107,7 @@ body {
 
     border-radius: 10px;
     flex: 1;
-    margin: 0 10px;
+    margin: 10 10px;
     text-align: center;
     font-weight: bold;
     font-size: 25px;
@@ -172,8 +118,7 @@ body {
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s, filter 0.3s;
-    width: 150px;
-    height: 150px;
+    
 }
 .info-box:hover {
     transform: scale(1.05);
@@ -203,7 +148,7 @@ body {
     margin-bottom: 20px;
 }
 .supervisor-container {
-    display: flex;
+    
     align-items: center;
     background: #f4f4f4;
     padding: 20px;
@@ -215,7 +160,7 @@ body {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 20px;
+ 
 }
 .supervisor-info {
     text-align: left;
