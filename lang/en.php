@@ -178,10 +178,16 @@ return [
     "Leader of the \"Smart Data Lab\" project" => "Leader of the \"Smart Data Lab\" project",
     "Publications:" => "Publications:",
     "Author of several articles on AI and Big Data" => "Author of several articles on AI and Big Data",
-    "Contact:" => "Contact:"
+    "Contact:" => "Contact:",
 
-    
 
+    "Mechanics - Structures & Damage" => "Mechanics - Structures & Damage",
+    "Today, industrial players are competing..." => "Today, industrial players are competing to reduce costs and improve productivity.
+    Technically, one of the major concerns is to ensure the durability and integrity of the components of industrial equipment, increasing productivity with lower cost impact on the product’s total cost. 
+    The team's research activities are geared towards innovation and sustainable development, providing concrete support (scientific, technical, and socio-economic) and at the same time responding to problems encountered by builders in all fields (civil engineering, automotive, metallurgy...).
+    The team's application fields also include the development of new materials (physical, mechanical, and thermomechanical characterization). 
+    Providing industries with ready-to-use advanced tools for simulating various physical and mechanical phenomena and designing new materials and products is of particular interest to the team.",
+ 
 
 
 ];

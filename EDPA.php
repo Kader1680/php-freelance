@@ -1,42 +1,6 @@
 <?php include 'includes/header.php'; ?>
 
-
-<style>
-
-@media(max-width: 768px) { 
-  .text-box {
-   
-    margin: -15px auto;
-    background: rgb(225 225 220 / 68%);
-    padding: 10px 20px;
-    transform: translateY(-50%);
-    border-radius: 10px;
-    max-width: 568px;
-    box-shadow: 0px 4px 8px rgba(226, 222, 222, 0.989);
-    }
-
-    .info-container {
-    width: auto;
-    display: block;
-    margin: auto;
-    }
-
-}
-
-@media(min-width: 767px) { 
-  .text-box {
-   
-
-    background: rgb(225 225 220 / 68%);
-    padding: 10px 20px;
-    transform: translateY(-50%);
-    border-radius: 10px;
-    max-width: 568px;
-    box-shadow: 0px 4px 8px rgba(226, 222, 222, 0.989);
-    }
-}
-  
-</style>
+ 
 <main>
 
     <div class="hero">

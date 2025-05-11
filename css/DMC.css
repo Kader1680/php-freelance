@@ -113,7 +113,8 @@
     font-size: 25px;
     background-color: #002F67;
     color: rgb(5, 4, 10);
-    
+        width: 300px;
+    height: 200px;
     position: relative;
     overflow: hidden;
     cursor: pointer;

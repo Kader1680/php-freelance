@@ -1,11 +1,65 @@
 <?php include 'includes/header.php'; ?>
+<style>
+            @media(max-width: 767px){
+            .text-box{         
+            width: 80%;
+        margin: auto;
+        transform: translate(-50%, -50%);
+        left: 50%;
+    }
+            }
+        .info-container {
+           display: block;
+           width: fit-content;
+        }
+        .info-box {
+           margin-bottom: 40px;
+        }
+        .supervisor-container {
+    display: block;
+     
+}
+.supervisor-container img {
+     display: flex;
+    
+    margin: auto;
+}
 
+    .info-container {
+    display: block;
+    
+}
+    @media(min-width: 767px){
+      .supervisor-container {
+        display: flex;   
+        }
+        .supervisor-container img {
+            margin-right: 20px;
+        }
+        .info-container {
+    display: flex;
+    justify-content: space-between;
+    
+        }
+    }
+    .info-box span{
+            top: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            width: max-content;
+    }
+
+ 
+
+</style>
 <main>
     <div class="hero">
         <img src="img/,.jpeg" alt="<?= __('Laboratory'); ?>">
         <div class="overlay"></div>
         <div class="text-box">
-            <h1><?= __('Durability of construction materials'); ?></h1>
+            <h1 class="t"><?= __('Durability of construction materials'); ?></h1>
             <p><?= __('The team’s work focuses...'); ?></p>
         </div>
     </div>

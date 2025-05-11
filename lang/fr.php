@@ -180,9 +180,14 @@ return [
     "Leader of the \"Smart Data Lab\" project" => "Responsable du projet \"Smart Data Lab\"",
     "Publications:" => "Publications:",
     "Author of several articles on AI and Big Data" => "Auteur de plusieurs articles sur l'IA et le Big Data",
-    "Contact:" => "Contact:"
+    "Contact:" => "Contact:",
 
-    
+    "Mechanics - Structures & Damage" => "Mécanique - Structures & Endommagement",
+    "Today, industrial players are competing..." => "Aujourd'hui, les acteurs industriels se livrent une concurrence afin de minimiser les coûts et d’améliorer la productivité.
+Techniquement, une des préoccupations majeures consiste à garantir la durabilité et l'intégrité des pièces constitutives d'équipements industriels, en augmentant la productivité avec un moindre impact sur le coût total du produit.
+Les activités de recherche de l’équipe sont orientées vers l’innovation et le développement durable, en apportant un soutien concret (scientifique, technique et socio-économique), tout en répondant aux problèmes rencontrés par les constructeurs dans tous les domaines (génie civil, automobile, métallurgie…).
+Les domaines d’application de l’équipe concernent également l’élaboration de nouveaux matériaux (caractérisation physique, mécanique et thermomécanique).
+La mise à disposition des industriels d’outils avancés, prêts à l’emploi, pour la simulation de différents phénomènes physiques et mécaniques ainsi que pour la conception de nouveaux matériaux et produits, représente un intérêt particulier pour l’équipe.",
 
 
 
