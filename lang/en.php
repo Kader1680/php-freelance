@@ -160,4 +160,28 @@ return [
 
 
 
+     "Laboratory" => "Laboratory",
+    "Durability of construction materials" => "Durability of construction materials",
+    "The team’s work focuses..." => "The team’s work focuses on the repair and rehabilitation of civil engineering structures (beams, plates, shells, etc.). Priority will be given to strengthening structures with composite materials. The group will conduct nationally and internationally recognized research while training excellent researchers in civil engineering.",
+    "Graduation Projects" => "Graduation Projects",
+    "Researches" => "Researches",
+    "Team Leader" => "Team Leader",
+    "Professor" => "Professor",
+    "Dr. AMARA Khaled" => "Dr. AMARA Khaled",
+    "Position:" => "Position:",
+    "Computer Science Professor" => "Computer Science Professor",
+    "Specialty:" => "Specialty:",
+    "Artificial Intelligence and Distributed Systems" => "Artificial Intelligence and Distributed Systems",
+    "Experience:" => "Experience:",
+    "15 years in teaching and research" => "15 years in teaching and research",
+    "Team:" => "Team:",
+    "Leader of the \"Smart Data Lab\" project" => "Leader of the \"Smart Data Lab\" project",
+    "Publications:" => "Publications:",
+    "Author of several articles on AI and Big Data" => "Author of several articles on AI and Big Data",
+    "Contact:" => "Contact:"
+
+    
+
+
+
 ];

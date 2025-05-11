@@ -162,6 +162,30 @@ return [
 
 
 
+     "Laboratory" => "Laboratoire",
+    "Durability of construction materials" => "Durabilité des matériaux de construction",
+    "The team’s work focuses..." => "Les travaux de l’équipe s’inscrivent dans le domaine de réparation, réhabilitation des structures en génie civil (poutres, plaques, coques…). La priorité sera donnée au Renforcement des structures par les matériaux composites. Le groupe mènera des recherches reconnues aux niveaux national et international tout en formant d'excellents chercheurs en génie civil.",
+    "Graduation Projects" => "Mémoires de fin d'études",
+    "Researches" => "Recherches",
+    "Team Leader" => "Chef d'Équipe",
+    "Professor" => "Professeur",
+    "Dr. AMARA Khaled" => "Dr. AMARA Khaled",
+    "Position:" => "Poste:",
+    "Computer Science Professor" => "Professeur en Informatique",
+    "Specialty:" => "Spécialité:",
+    "Artificial Intelligence and Distributed Systems" => "Intelligence Artificielle et Systèmes Distribués",
+    "Experience:" => "Expérience:",
+    "15 years in teaching and research" => "15 ans dans l'enseignement et la recherche",
+    "Team:" => "Équipe:",
+    "Leader of the \"Smart Data Lab\" project" => "Responsable du projet \"Smart Data Lab\"",
+    "Publications:" => "Publications:",
+    "Author of several articles on AI and Big Data" => "Auteur de plusieurs articles sur l'IA et le Big Data",
+    "Contact:" => "Contact:"
+
+    
+
+
+
 
 
 

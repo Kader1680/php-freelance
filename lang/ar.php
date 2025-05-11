@@ -171,4 +171,24 @@ return [
     'contact' => 'yassine.merad@univ-uat.dz',
  
 
+
+     "Laboratory" => "مختبر",
+    "Durability of construction materials" => "متانة مواد البناء",
+    "The team’s work focuses..." => "يتركز عمل الفريق على إصلاح وإعادة تأهيل هياكل الهندسة المدنية (الكمرات، الألواح، القشور...). سيتم إعطاء الأولوية لتقوية الهياكل باستخدام المواد المركبة. سيجري الفريق أبحاثاً معترفاً بها على المستويين الوطني والدولي مع تدريب باحثين متميزين في الهندسة المدنية.",
+    "Graduation Projects" => "مذكرات التخرج",
+    "Researches" => "الأبحاث",
+    "Team Leader" => "رئيس الفريق",
+    "Professor" => "أستاذ",
+    "Dr. AMARA Khaled" => "الدكتور عمارة خالد",
+    "Position:" => "المنصب:",
+    "Computer Science Professor" => "أستاذ في علوم الحاسوب",
+    "Specialty:" => "التخصص:",
+    "Artificial Intelligence and Distributed Systems" => "الذكاء الاصطناعي والأنظمة الموزعة",
+    "Experience:" => "الخبرة:",
+    "15 years in teaching and research" => "15 سنة في التدريس والبحث العلمي",
+    "Team:" => "الفريق:",
+    "Leader of the \"Smart Data Lab\" project" => "مسؤول مشروع \"مختبر البيانات الذكية\"",
+    "Publications:" => "المنشورات:",
+    "Author of several articles on AI and Big Data" => "كاتب لعدة مقالات حول الذكاء الاصطناعي والبيانات الضخمة",
+    "Contact:" => "الاتصال:"
 ];
